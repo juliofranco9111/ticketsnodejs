@@ -39,6 +39,13 @@ io.on('connection', (client) => {
             ultimos4: ticketControl.getUltimos4()
         });
 
-    })
+    });
+    client.on('recargarTicket',()=>{
+        
+        let reiniciar = ticketControl.reiniciarConteo();
+
+
+        
+    });
 
 });

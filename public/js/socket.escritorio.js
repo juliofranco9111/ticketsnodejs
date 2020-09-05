@@ -3,6 +3,8 @@ var socket = io();
 
 var searchParams = new URLSearchParams(window.location.search);
 
+
+
 //console.log(searchParams.has('escritorio'))
 
 if(!searchParams.has('escritorio')){
@@ -21,7 +23,7 @@ $('h1').text(`Escritorio ${escritorio}`);
 ///listener del boton
 
 
-$('button').on('click', function(){
+$('#next').on('click', function(){
 
    socket.emit('atenderTicket',{escritorio: escritorio}, function(respuesta){
       console.log(respuesta)
@@ -36,6 +38,19 @@ $('button').on('click', function(){
    })
    
 });
+
+$('#reload').on('click', function(){
+
+   alert('holi');
+
+   socket.emit('recargarTicket',null, function(recargarTicket){
+      return true;
+   })
+
+
+});
+
+
 
 
 
